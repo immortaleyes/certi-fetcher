@@ -17,14 +17,14 @@ const Index = () => {
         <div className="border-t border-gray-200 pt-6">
           <h2 className="text-lg font-medium text-gray-900 mb-4">Download Your Certificate</h2>
           <p className="text-gray-600 mb-6">
-            Please enter your registered email and mobile number to download your certificate.
+            Please enter your name and student ID to download your certificate.
           </p>
           
           <CertificateForm />
         </div>
         
         <div className="mt-8 pt-6 border-t border-gray-200 text-center text-sm text-gray-500">
-          <p>If you face any issues, please contact support at support@edisha.com</p>
+          <p>If you face any issues, please contact support at edisha.279@gmail.com</p>
         </div>
       </div>
     </div>

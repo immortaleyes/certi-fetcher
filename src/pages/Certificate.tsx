@@ -13,16 +13,16 @@ const Certificate = () => {
   const [studentName, setStudentName] = useState<string | null>(null);
 
   useEffect(() => {
-    const email = searchParams.get("email");
-    const mobile = searchParams.get("mobile");
+    const name = searchParams.get("name");
+    const studentId = searchParams.get("studentId");
 
-    if (!email || !mobile) {
+    if (!name || !studentId) {
       setError("Invalid certificate link. Missing required information.");
       setLoading(false);
       return;
     }
 
-    const student = findStudent(email, mobile);
+    const student = findStudent(name, studentId);
     if (!student) {
       setError("No certificate found for the provided details.");
       setLoading(false);

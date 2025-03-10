@@ -5,11 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { toast } from "@/components/ui/use-toast";
-import { Mail, Phone, Download } from "lucide-react";
+import { User, UserRound, Download } from "lucide-react";
 
 const CertificateForm = () => {
-  const [email, setEmail] = useState("");
-  const [mobile, setMobile] = useState("");
+  const [name, setName] = useState("");
+  const [studentId, setStudentId] = useState("");
   const [student, setStudent] = useState<ReturnType<typeof findStudent>>(undefined);
   const [error, setError] = useState<string | null>(null);
   const [searched, setSearched] = useState(false);
@@ -18,17 +18,17 @@ const CertificateForm = () => {
     e.preventDefault();
     setError(null);
     
-    if (!email || !mobile) {
-      setError("Please enter both email and mobile number");
+    if (!name || !studentId) {
+      setError("Please enter both name and student ID");
       return;
     }
 
-    const foundStudent = findStudent(email, mobile);
+    const foundStudent = findStudent(name, studentId);
     setStudent(foundStudent);
     setSearched(true);
     
     if (!foundStudent) {
-      setError("No certificate found for the provided details. Please check your email and mobile number.");
+      setError("No certificate found for the provided details. Please check your name and student ID.");
     }
   };
 
@@ -51,12 +51,12 @@ const CertificateForm = () => {
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="space-y-2">
           <div className="relative">
-            <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+            <UserRound className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
             <Input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="text"
+              placeholder="Enter your full name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className="pl-10"
               required
             />
@@ -65,15 +65,14 @@ const CertificateForm = () => {
 
         <div className="space-y-2">
           <div className="relative">
-            <Phone className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+            <User className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
             <Input
-              type="tel"
-              placeholder="Enter your mobile number"
-              value={mobile}
-              onChange={(e) => setMobile(e.target.value)}
+              type="text"
+              placeholder="Enter your student ID"
+              value={studentId}
+              onChange={(e) => setStudentId(e.target.value)}
               className="pl-10"
               required
-              pattern="[0-9]{10}"
             />
           </div>
         </div>

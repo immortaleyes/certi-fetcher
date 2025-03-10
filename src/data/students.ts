@@ -6,6 +6,7 @@ import { Student } from "@/types/student";
 export const students: Student[] = [
   {
     id: "1",
+    studentId: "STU001",
     email: "john.doe@example.com",
     mobile: "9876543210",
     name: "John Doe",
@@ -13,6 +14,7 @@ export const students: Student[] = [
   },
   {
     id: "2",
+    studentId: "STU002",
     email: "jane.smith@example.com",
     mobile: "9876543211",
     name: "Jane Smith",
@@ -20,6 +22,7 @@ export const students: Student[] = [
   },
   {
     id: "3",
+    studentId: "STU003",
     email: "test@example.com",
     mobile: "1234567890",
     name: "Test User",
@@ -27,8 +30,8 @@ export const students: Student[] = [
   }
 ];
 
-export const findStudent = (email: string, mobile: string): Student | undefined => {
+export const findStudent = (name: string, studentId: string): Student | undefined => {
   return students.find(
-    (student) => student.email.toLowerCase() === email.toLowerCase() && student.mobile === mobile
+    (student) => student.name.toLowerCase() === name.toLowerCase() && student.studentId === studentId
   );
 };
