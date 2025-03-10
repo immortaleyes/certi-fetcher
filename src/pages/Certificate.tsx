@@ -11,6 +11,7 @@ const Certificate = () => {
   const [error, setError] = useState<string | null>(null);
   const [certificateUrl, setCertificateUrl] = useState<string | null>(null);
   const [studentName, setStudentName] = useState<string | null>(null);
+  const [referenceNo, setReferenceNo] = useState<string | null>(null);
 
   useEffect(() => {
     const studentId = searchParams.get("studentId");
@@ -30,6 +31,7 @@ const Certificate = () => {
 
     setCertificateUrl(student.certificateUrl);
     setStudentName(student.name);
+    setReferenceNo(student.referenceNo);
     setLoading(false);
   }, [searchParams]);
 
@@ -66,7 +68,13 @@ const Certificate = () => {
           <div className="text-center">
             <div className="bg-green-50 border border-green-200 rounded-md p-4 mb-6">
               <p className="text-green-700">
-                Hello, <span className="font-medium">{studentName}</span>! Your certificate is ready for download.
+                Hello, <span className="font-medium">{studentName}</span>!
+              </p>
+              <p className="text-green-700 mt-2">
+                Reference No: <span className="font-medium">{referenceNo}</span>
+              </p>
+              <p className="text-green-700 mt-2">
+                Your certificate is ready for download.
               </p>
             </div>
             

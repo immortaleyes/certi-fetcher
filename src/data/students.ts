@@ -5,7 +5,8 @@ import { Student } from "@/types/student";
 export const students: Student[] = [
   {
     id: "1",
-    studentId: "STU001",
+    studentId: "4788372",
+    referenceNo: "EDC/OJT/2025/03/301",
     email: "john.doe@example.com",
     mobile: "9876543210",
     name: "John Doe",
@@ -13,7 +14,8 @@ export const students: Student[] = [
   },
   {
     id: "2",
-    studentId: "STU002",
+    studentId: "4788373",
+    referenceNo: "EDC/OJT/2025/03/302",
     email: "jane.smith@example.com",
     mobile: "9876543211",
     name: "Jane Smith",
@@ -21,7 +23,8 @@ export const students: Student[] = [
   },
   {
     id: "3",
-    studentId: "STU003",
+    studentId: "4788374",
+    referenceNo: "EDC/OJT/2025/03/303",
     email: "test@example.com",
     mobile: "1234567890",
     name: "Test User",
@@ -29,7 +32,8 @@ export const students: Student[] = [
   },
   {
     id: "4",
-    studentId: "STU004",
+    studentId: "4788375",
+    referenceNo: "EDC/OJT/2025/03/304",
     email: "alice.johnson@example.com",
     mobile: "9876543212",
     name: "Alice Johnson",
@@ -37,7 +41,8 @@ export const students: Student[] = [
   },
   {
     id: "5",
-    studentId: "STU005",
+    studentId: "4788376",
+    referenceNo: "EDC/OJT/2025/03/305",
     email: "bob.williams@example.com",
     mobile: "9876543213",
     name: "Bob Williams",
@@ -45,7 +50,8 @@ export const students: Student[] = [
   },
   {
     id: "6",
-    studentId: "STU006",
+    studentId: "4788377",
+    referenceNo: "EDC/OJT/2025/03/306",
     email: "carol.brown@example.com",
     mobile: "9876543214",
     name: "Carol Brown",
@@ -53,7 +59,8 @@ export const students: Student[] = [
   },
   {
     id: "7",
-    studentId: "STU007",
+    studentId: "4788378",
+    referenceNo: "EDC/OJT/2025/03/307",
     email: "david.jones@example.com",
     mobile: "9876543215",
     name: "David Jones",
@@ -64,6 +71,11 @@ export const students: Student[] = [
 // Simplified function to find student by studentId only
 export const findStudentById = (studentId: string): Student | undefined => {
   return students.find(student => student.studentId === studentId);
+};
+
+// Find by reference number
+export const findStudentByReferenceNo = (referenceNo: string): Student | undefined => {
+  return students.find(student => student.referenceNo === referenceNo);
 };
 
 // Keep the original function for backward compatibility

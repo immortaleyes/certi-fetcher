@@ -56,7 +56,7 @@ const CertificateForm = () => {
             <User className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
             <Input
               type="text"
-              placeholder="Enter your student ID (e.g., STU001)"
+              placeholder="Enter your student ID (e.g., 4788372)"
               value={studentId}
               onChange={(e) => setStudentId(e.target.value)}
               className="pl-10"
@@ -82,6 +82,7 @@ const CertificateForm = () => {
           <div className="text-green-700 mb-4">
             <p className="mb-1"><strong>Name:</strong> {student.name}</p>
             <p className="mb-1"><strong>Student ID:</strong> {student.studentId}</p>
+            <p className="mb-1"><strong>Reference No:</strong> {student.referenceNo}</p>
             <p><strong>Email:</strong> {student.email}</p>
           </div>
           <Button 
