@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { findStudent } from "@/data/students";
+import { findStudentById } from "@/data/students";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 
@@ -13,18 +13,17 @@ const Certificate = () => {
   const [studentName, setStudentName] = useState<string | null>(null);
 
   useEffect(() => {
-    const name = searchParams.get("name");
     const studentId = searchParams.get("studentId");
 
-    if (!name || !studentId) {
-      setError("Invalid certificate link. Missing required information.");
+    if (!studentId) {
+      setError("Invalid certificate link. Missing student ID.");
       setLoading(false);
       return;
     }
 
-    const student = findStudent(name, studentId);
+    const student = findStudentById(studentId);
     if (!student) {
-      setError("No certificate found for the provided details.");
+      setError("No certificate found for the provided student ID.");
       setLoading(false);
       return;
     }
@@ -57,7 +56,7 @@ const Certificate = () => {
           <div className="bg-red-50 border border-red-200 rounded-md p-4 mb-4">
             <p className="text-red-700">{error}</p>
             <p className="mt-4 text-sm text-gray-600">
-              Please go back to the main page and try again with the correct details.
+              Please go back to the main page and try again with the correct student ID.
             </p>
             <Button className="mt-4 w-full" onClick={() => window.location.href = "/"}>
               Go to Homepage

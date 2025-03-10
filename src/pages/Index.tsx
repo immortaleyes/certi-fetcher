@@ -1,5 +1,4 @@
 
-import { Button } from "@/components/ui/button";
 import CertificateForm from "@/components/CertificateForm";
 
 const Index = () => {
@@ -17,7 +16,7 @@ const Index = () => {
         <div className="border-t border-gray-200 pt-6">
           <h2 className="text-lg font-medium text-gray-900 mb-4">Download Your Certificate</h2>
           <p className="text-gray-600 mb-6">
-            Please enter your name and student ID to download your certificate.
+            Please enter your student ID to download your certificate.
           </p>
           
           <CertificateForm />
