@@ -83,6 +83,7 @@ const CertificateForm = () => {
             <p className="mb-1"><strong>Name:</strong> {student.name}</p>
             <p className="mb-1"><strong>Student ID:</strong> {student.studentId}</p>
             <p className="mb-1"><strong>Reference No:</strong> {student.referenceNo}</p>
+            <p className="mb-1"><strong>Program:</strong> {student.programme}</p>
             <p><strong>Email:</strong> {student.email}</p>
           </div>
           <Button 

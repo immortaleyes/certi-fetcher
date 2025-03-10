@@ -6,5 +6,7 @@ export interface Student {
   email: string;
   mobile: string;
   name: string;
+  college: string;
+  programme: string;
   certificateUrl: string;
 }

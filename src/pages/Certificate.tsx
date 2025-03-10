@@ -12,17 +12,19 @@ const Certificate = () => {
   const [certificateUrl, setCertificateUrl] = useState<string | null>(null);
   const [studentName, setStudentName] = useState<string | null>(null);
   const [referenceNo, setReferenceNo] = useState<string | null>(null);
+  const [programme, setProgramme] = useState<string | null>(null);
+  const [studentId, setStudentId] = useState<string | null>(null);
 
   useEffect(() => {
-    const studentId = searchParams.get("studentId");
+    const id = searchParams.get("studentId");
 
-    if (!studentId) {
+    if (!id) {
       setError("Invalid certificate link. Missing student ID.");
       setLoading(false);
       return;
     }
 
-    const student = findStudentById(studentId);
+    const student = findStudentById(id);
     if (!student) {
       setError("No certificate found for the provided student ID.");
       setLoading(false);
@@ -32,6 +34,8 @@ const Certificate = () => {
     setCertificateUrl(student.certificateUrl);
     setStudentName(student.name);
     setReferenceNo(student.referenceNo);
+    setProgramme(student.programme);
+    setStudentId(student.studentId);
     setLoading(false);
   }, [searchParams]);
 
@@ -71,8 +75,16 @@ const Certificate = () => {
                 Hello, <span className="font-medium">{studentName}</span>!
               </p>
               <p className="text-green-700 mt-2">
+                Student ID: <span className="font-medium">{studentId}</span>
+              </p>
+              <p className="text-green-700 mt-2">
                 Reference No: <span className="font-medium">{referenceNo}</span>
               </p>
+              {programme && (
+                <p className="text-green-700 mt-2">
+                  Programme: <span className="font-medium">{programme}</span>
+                </p>
+              )}
               <p className="text-green-700 mt-2">
                 Your certificate is ready for download.
               </p>
